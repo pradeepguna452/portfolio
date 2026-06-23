@@ -10,16 +10,16 @@ export function SectionShell({
   children: ReactNode;
 }) {
   return (
-    <section className="space-y-4">
+    <section className="space-y-6">
       <div>
-        <h1 className="text-lg font-semibold tracking-tight text-zinc-900">
+        <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
           {title}
         </h1>
         {description ? (
-          <p className="mt-1 text-sm text-zinc-600">{description}</p>
+          <p className="mt-1.5 text-sm text-slate-500 dark:text-slate-400">{description}</p>
         ) : null}
       </div>
-      <div className="rounded-2xl border border-zinc-200 bg-white p-4 sm:p-6">
+      <div className="rounded-3xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6 lg:p-8 dark:border-slate-800 dark:bg-slate-900">
         {children}
       </div>
     </section>

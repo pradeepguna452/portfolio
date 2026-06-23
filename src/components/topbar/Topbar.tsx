@@ -15,20 +15,24 @@ export function Topbar() {
   const title = titleFromPath(pathname);
 
   return (
-    <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white/80 backdrop-blur">
-      <div className="flex h-14 items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-10 border-b border-slate-200 bg-white/70 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/70">
+      <div className="flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
         <div className="min-w-0">
-          <div className="truncate text-sm font-semibold text-zinc-900">
+          <div className="truncate text-lg font-bold tracking-tight text-slate-900 dark:text-white">
             {title}
           </div>
-          <div className="truncate text-xs text-zinc-500">
+          <div className="truncate text-xs font-medium text-slate-500 dark:text-slate-400">
             Your personal admin panel
           </div>
         </div>
 
-        <div className="flex items-center gap-2">
-          <div className="rounded-full border border-zinc-200 bg-zinc-50 px-3 py-1 text-xs text-zinc-600">
-            Supabase-ready
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1 text-[11px] font-bold tracking-wide text-emerald-700 shadow-sm dark:border-emerald-900/50 dark:bg-emerald-500/10 dark:text-emerald-400">
+            <span className="relative flex h-2 w-2">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
+            </span>
+            SUPABASE READY
           </div>
         </div>
       </div>

@@ -124,9 +124,9 @@ export default function ItemsPage() {
     >
       <form onSubmit={add} className="grid gap-3 sm:grid-cols-6 sm:items-end">
         <label className="block space-y-1 sm:col-span-2">
-          <div className="text-xs font-medium text-zinc-700">Name</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Name</div>
           <input
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="Protein powder"
@@ -135,30 +135,30 @@ export default function ItemsPage() {
         </label>
 
         <label className="block space-y-1 sm:col-span-1">
-          <div className="text-xs font-medium text-zinc-700">Bought</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Bought</div>
           <input
             type="date"
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={boughtOn}
             onChange={(e) => setBoughtOn(e.target.value)}
           />
         </label>
 
         <label className="block space-y-1 sm:col-span-1">
-          <div className="text-xs font-medium text-zinc-700">Expires</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Expires</div>
           <input
             type="date"
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={expiresOn}
             onChange={(e) => setExpiresOn(e.target.value)}
           />
         </label>
 
         <label className="block space-y-1 sm:col-span-1">
-          <div className="text-xs font-medium text-zinc-700">Used until</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Used until</div>
           <input
             type="date"
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={usedUntil}
             onChange={(e) => setUsedUntil(e.target.value)}
           />
@@ -168,16 +168,16 @@ export default function ItemsPage() {
           <button
             type="submit"
             disabled={busy}
-            className="h-10 flex-1 rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-60"
+            className="h-11 flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 text-sm font-bold text-white shadow-md shadow-indigo-500/20 transition-all hover:from-violet-500 hover:to-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
           >
             Add
           </button>
         </div>
 
         <label className="block space-y-1 sm:col-span-6">
-          <div className="text-xs font-medium text-zinc-700">Note (optional)</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Note (optional)</div>
           <input
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={note}
             onChange={(e) => setNote(e.target.value)}
             placeholder="Any details…"
@@ -186,13 +186,13 @@ export default function ItemsPage() {
       </form>
 
       {error ? (
-        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+        <div className="mt-4 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm font-medium text-rose-600 dark:border-rose-900/50 dark:bg-rose-900/20 dark:text-rose-400">
           {error}
         </div>
       ) : null}
 
-      <div className="mt-6 overflow-hidden rounded-xl border border-zinc-200">
-        <div className="grid grid-cols-12 bg-zinc-50 px-3 py-2 text-xs font-medium text-zinc-600">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div className="grid grid-cols-12 bg-slate-50/50 px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:bg-slate-800/50 dark:text-slate-400">
           <div className="col-span-4">Item</div>
           <div className="col-span-2">Bought</div>
           <div className="col-span-2">Expires</div>
@@ -201,11 +201,11 @@ export default function ItemsPage() {
         </div>
 
         {loading ? (
-          <div className="px-3 py-3 text-sm text-zinc-600">Loading…</div>
+          <div className="px-3 py-3 text-sm text-slate-500 dark:text-slate-400">Loading…</div>
         ) : sorted.length === 0 ? (
-          <div className="px-3 py-3 text-sm text-zinc-600">No items yet.</div>
+          <div className="px-3 py-3 text-sm text-slate-500 dark:text-slate-400">No items yet.</div>
         ) : (
-          <ul className="divide-y divide-zinc-200">
+          <ul className="divide-y divide-slate-100 dark:divide-slate-800/50">
             {sorted.map((r) => {
               const d = daysUntil(r.expires_on);
               const warn = d !== null && d <= 7;
@@ -213,30 +213,30 @@ export default function ItemsPage() {
                 <li
                   key={r.id}
                   className={[
-                    "grid grid-cols-12 items-center px-3 py-2",
-                    warn ? "bg-amber-50" : "bg-white",
+                    "grid grid-cols-12 items-center gap-2 px-4 py-3 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/20",
+                    warn ? "bg-amber-50 dark:bg-amber-900/20" : "bg-white",
                   ].join(" ")}
                 >
                   <div className="col-span-4 min-w-0">
-                    <div className="truncate text-sm text-zinc-900">{r.name}</div>
+                    <div className="truncate text-sm text-slate-900 dark:text-white">{r.name}</div>
                     {r.note ? (
-                      <div className="truncate text-xs text-zinc-500">{r.note}</div>
+                      <div className="truncate text-xs text-slate-500 dark:text-slate-400">{r.note}</div>
                     ) : null}
                   </div>
-                  <div className="col-span-2 text-sm text-zinc-700">
+                  <div className="col-span-2 text-sm text-slate-700 dark:text-slate-300">
                     {r.bought_on ?? "—"}
                   </div>
-                  <div className="col-span-2 text-sm text-zinc-700">
+                  <div className="col-span-2 text-sm text-slate-700 dark:text-slate-300">
                     {r.expires_on ?? "—"}
                   </div>
-                  <div className="col-span-2 text-sm text-zinc-700">
+                  <div className="col-span-2 text-sm text-slate-700 dark:text-slate-300">
                     {d === null ? "—" : d}
                   </div>
                   <div className="col-span-2 flex justify-end">
                     <button
                       onClick={() => remove(r.id)}
                       disabled={busy}
-                      className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 hover:bg-zinc-50 disabled:opacity-60"
+                      className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                     >
                       Delete
                     </button>

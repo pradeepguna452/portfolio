@@ -157,7 +157,7 @@ export default function DocumentsPage() {
       title="Important documents"
       description="Uploads go to Supabase Storage bucket “documents”."
     >
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs text-amber-900">
+      <div className="rounded-xl border border-amber-200 bg-amber-50 dark:bg-amber-900/20 p-3 text-xs font-medium text-amber-900 dark:border-amber-900/50 dark:bg-amber-900/20 dark:text-amber-400">
         Before using this page: create a Supabase Storage bucket named{" "}
         <span className="font-semibold">documents</span> and enable RLS/policies
         to allow only your user to access their own files.
@@ -165,9 +165,9 @@ export default function DocumentsPage() {
 
       <form onSubmit={upload} className="mt-4 grid gap-3 sm:grid-cols-6 sm:items-end">
         <label className="block space-y-1 sm:col-span-2">
-          <div className="text-xs font-medium text-zinc-700">Title</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">Title</div>
           <input
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Passport scan"
@@ -175,11 +175,11 @@ export default function DocumentsPage() {
         </label>
 
         <label className="block space-y-1 sm:col-span-2">
-          <div className="text-xs font-medium text-zinc-700">
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">
             Tags (comma separated)
           </div>
           <input
-            className="h-10 w-full rounded-lg border border-zinc-200 px-3 text-sm outline-none focus:border-zinc-400"
+            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50/50 px-3 text-sm outline-none transition-all focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/10 dark:border-slate-700 dark:bg-slate-800/50 dark:text-white dark:focus:bg-slate-800"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
             placeholder="id, travel, 2026"
@@ -187,7 +187,7 @@ export default function DocumentsPage() {
         </label>
 
         <label className="block space-y-1 sm:col-span-2">
-          <div className="text-xs font-medium text-zinc-700">File</div>
+          <div className="text-xs font-medium text-slate-700 dark:text-slate-300">File</div>
           <input
             type="file"
             className="block w-full text-sm"
@@ -200,7 +200,7 @@ export default function DocumentsPage() {
           <button
             type="submit"
             disabled={busy}
-            className="h-10 flex-1 rounded-lg bg-zinc-900 px-4 text-sm font-medium text-white hover:bg-zinc-800 disabled:opacity-60"
+            className="h-11 flex-1 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 text-sm font-bold text-white shadow-md shadow-indigo-500/20 transition-all hover:from-violet-500 hover:to-indigo-500 hover:shadow-lg hover:shadow-indigo-500/30 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50"
           >
             Upload
           </button>
@@ -208,7 +208,7 @@ export default function DocumentsPage() {
             type="button"
             disabled={busy}
             onClick={() => load()}
-            className="h-10 rounded-lg border border-zinc-200 bg-white px-4 text-sm text-zinc-700 hover:bg-zinc-50 disabled:opacity-60"
+            className="h-11 rounded-xl border border-slate-200 bg-white px-4 text-sm font-medium text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
           >
             Refresh
           </button>
@@ -216,34 +216,34 @@ export default function DocumentsPage() {
       </form>
 
       {error ? (
-        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
+        <div className="mt-4 rounded-xl border border-rose-200 bg-rose-50 p-3 text-sm font-medium text-rose-600 dark:border-rose-900/50 dark:bg-rose-900/20 dark:text-rose-400">
           {error}
         </div>
       ) : null}
 
-      <div className="mt-6 overflow-hidden rounded-xl border border-zinc-200">
-        <div className="grid grid-cols-12 bg-zinc-50 px-3 py-2 text-xs font-medium text-zinc-600">
+      <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900">
+        <div className="grid grid-cols-12 bg-slate-50/50 px-4 py-3 text-xs font-semibold tracking-wide text-slate-500 uppercase dark:bg-slate-800/50 dark:text-slate-400">
           <div className="col-span-5">Title</div>
           <div className="col-span-4">Tags</div>
           <div className="col-span-3 text-right">Actions</div>
         </div>
 
         {loading ? (
-          <div className="px-3 py-3 text-sm text-zinc-600">Loading…</div>
+          <div className="px-3 py-3 text-sm text-slate-500 dark:text-slate-400">Loading…</div>
         ) : rows.length === 0 ? (
-          <div className="px-3 py-3 text-sm text-zinc-600">No documents yet.</div>
+          <div className="px-3 py-3 text-sm text-slate-500 dark:text-slate-400">No documents yet.</div>
         ) : (
-          <ul className="divide-y divide-zinc-200">
+          <ul className="divide-y divide-slate-100 dark:divide-slate-800/50">
             {rows.map((r) => (
-              <li key={r.id} className="grid grid-cols-12 items-center px-3 py-2">
+              <li key={r.id} className="grid grid-cols-12 items-center gap-2 px-4 py-3 transition-colors hover:bg-slate-50/50 dark:hover:bg-slate-800/20">
                 <div className="col-span-5 min-w-0">
-                  <div className="truncate text-sm text-zinc-900">{r.title}</div>
-                  <div className="truncate text-xs text-zinc-500">
+                  <div className="truncate text-sm text-slate-900 dark:text-white">{r.title}</div>
+                  <div className="truncate text-xs text-slate-500 dark:text-slate-400">
                     {new Date(r.created_at).toLocaleString()}
                   </div>
                 </div>
                 <div className="col-span-4 min-w-0">
-                  <div className="truncate text-xs text-zinc-600">
+                  <div className="truncate text-xs text-slate-500 dark:text-slate-400">
                     {r.tags?.length ? r.tags.join(", ") : "—"}
                   </div>
                 </div>
@@ -251,14 +251,14 @@ export default function DocumentsPage() {
                   <button
                     onClick={() => openDoc(r)}
                     disabled={busy}
-                    className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 hover:bg-zinc-50 disabled:opacity-60"
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                   >
                     Open
                   </button>
                   <button
                     onClick={() => remove(r)}
                     disabled={busy}
-                    className="rounded-lg border border-zinc-200 bg-white px-3 py-1.5 text-xs text-zinc-700 hover:bg-zinc-50 disabled:opacity-60"
+                    className="rounded-xl border border-slate-200 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 shadow-sm transition-all hover:bg-slate-50 hover:text-slate-900 active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:bg-slate-700"
                   >
                     Delete
                   </button>
