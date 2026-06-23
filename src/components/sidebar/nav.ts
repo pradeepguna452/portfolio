@@ -4,12 +4,12 @@ import {
   FileText,
   Gift,
   KeyRound,
-  ListChecks,
+  Activity,
   Package,
 } from "lucide-react";
 
 export const navItems = [
-  { href: "/daily-tracker", label: "Daily tracker", icon: ListChecks },
+  { href: "/daily-tracker", label: "Habit Tracker", icon: Activity },
   { href: "/money", label: "Money management", icon: CreditCard },
   { href: "/items", label: "Things bought / expiry", icon: Package },
   { href: "/documents", label: "Documents", icon: FileText },
